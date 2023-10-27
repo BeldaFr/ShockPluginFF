@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Numerics;
 using Dalamud.Interface.Internal;
 using Dalamud.Interface.Windowing;
@@ -44,5 +44,8 @@ public class MainWindow : Window, IDisposable
         ImGui.Indent(55);
         ImGui.Image(this.GoatImage.ImGuiHandle, new Vector2(this.GoatImage.Width, this.GoatImage.Height));
         ImGui.Unindent(55);
+
+        ImGui.Spacing();
+        ImGui.Text($"The text is : {this.Plugin.Configuration.MessageTest}");
     }
 }

@@ -1,10 +1,13 @@
-﻿using Dalamud.Game.Command;
+using Dalamud.Game.Command;
 using Dalamud.IoC;
 using Dalamud.Plugin;
 using System.IO;
 using Dalamud.Interface.Windowing;
 using Dalamud.Plugin.Services;
 using SamplePlugin.Windows;
+using Dalamud.Game.Gui;
+using Dalamud.Game.Text;
+using Dalamud.Game.Text.SeStringHandling;
 
 namespace SamplePlugin
 {
@@ -15,6 +18,7 @@ namespace SamplePlugin
 
         private DalamudPluginInterface PluginInterface { get; init; }
         private ICommandManager CommandManager { get; init; }
+        private IChatGui Chat { get; init; } = null!;
         public Configuration Configuration { get; init; }
         public WindowSystem WindowSystem = new("SamplePlugin");
 
@@ -23,13 +27,15 @@ namespace SamplePlugin
 
         public Plugin(
             [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
-            [RequiredVersion("1.0")] ICommandManager commandManager)
+            [RequiredVersion("1.0")] ICommandManager commandManager,
+            [RequiredVersion("1.0")] IChatGui chat)
         {
             this.PluginInterface = pluginInterface;
             this.CommandManager = commandManager;
 
             this.Configuration = this.PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
             this.Configuration.Initialize(this.PluginInterface);
+            this.Chat = chat;
 
             // you might normally want to embed resources and load them from the manifest stream
             var imagePath = Path.Combine(PluginInterface.AssemblyLocation.Directory?.FullName!, "goat.png");
@@ -48,6 +54,7 @@ namespace SamplePlugin
 
             this.PluginInterface.UiBuilder.Draw += DrawUI;
             this.PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
+            this.Chat.ChatMessage += OnChatMessage;
         }
 
         public void Dispose()
@@ -58,6 +65,7 @@ namespace SamplePlugin
             MainWindow.Dispose();
             
             this.CommandManager.RemoveHandler(CommandName);
+            this.Chat.ChatMessage -= OnChatMessage;
         }
 
         private void OnCommand(string command, string args)
@@ -74,6 +82,24 @@ namespace SamplePlugin
         public void DrawConfigUI()
         {
             ConfigWindow.IsOpen = true;
+        }
+
+        public delegate void OnMessageDelegate(XivChatType type, uint senderId, ref SeString sender, ref SeString message, ref bool isHandled);
+        private void OnChatMessage(XivChatType type, uint senderId, ref SeString sender, ref SeString message, ref bool isHandled)
+        {
+            // for now only check a message if in a FC
+            // Need to add a config file to check which chat to check
+
+            // Also need to check for the trigger word that is setup + Do the actual shock with
+            // the post request
+            if (type.ToString().Equals("FreeCompany"))
+            {
+                this.Configuration.MessageTest = message.ToString();
+            } else
+            {
+                this.Configuration.MessageTest = type.GetType().ToString();
+            }
+            //this.Configuration.MessageTest = message.ToString();
         }
     }
 }

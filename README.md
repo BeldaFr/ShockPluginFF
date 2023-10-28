@@ -1,8 +1,8 @@
 
 # Eorzap
 A simple Dalamund plugin used to link your Pishock shocker FFXIV
-Meant to be used with the amazing animation mods : [Remote Shock Collar [Animation] [NSFW]]([url](https://www.xivmodarchive.com/modid/89985))
-[Remote Shock Collar [Animation] [NSFW]]([url](https://www.xivmodarchive.com/modid/89985))
+Meant to be used with the amazing animation mods : [Remote Shock Collar [Animation] [NSFW]](https://www.xivmodarchive.com/modid/89985)
+
 
 ## How does it works
 You can set up listeners to different kind of chats(Freecompany,say, part ect...) To do so you need to set up a Main keywords as well as up to 4 triggers.

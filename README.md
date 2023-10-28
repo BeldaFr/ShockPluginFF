@@ -1,7 +1,7 @@
 
 # Eorzap
 A simple Dalamund plugin used to link your Pishock shocker FFXIV
-Meant to be used with the amazing animation mods : [Remote Shock Collar [Animation] [NSFW]](https://www.xivmodarchive.com/modid/89985)
+Meant to be used with the amazing animation mods : [Remote Shock Collar [Animation] [NSFW]](https://www.xivmodarchive.com/modid/89985) for more immersion, but can work without it
 
 
 ## How does it works

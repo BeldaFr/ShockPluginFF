@@ -8,6 +8,9 @@ using SamplePlugin.Windows;
 using Dalamud.Game.Gui;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
+using System.Collections.Generic;
+using System;
+using Dalamud.Logging;
 
 namespace SamplePlugin
 {
@@ -84,7 +87,7 @@ namespace SamplePlugin
             ConfigWindow.IsOpen = true;
         }
 
-        public delegate void OnMessageDelegate(XivChatType type, uint senderId, ref SeString sender, ref SeString message, ref bool isHandled);
+        //public delegate void OnMessageDelegate(XivChatType type, uint senderId, ref SeString sender, ref SeString message, ref bool isHandled);
         private void OnChatMessage(XivChatType type, uint senderId, ref SeString sender, ref SeString message, ref bool isHandled)
         {
             // for now only check a message if in a FC
@@ -92,12 +95,16 @@ namespace SamplePlugin
 
             // Also need to check for the trigger word that is setup + Do the actual shock with
             // the post request
-            if (type.ToString().Equals("FreeCompany"))
+            this.Configuration.InfoChannel();
+            string[] Channels = this.Configuration.ChatName;
+            int index = Array.IndexOf(Channels, type.ToString());
+            PluginLog.Log("Index", index);
+            if (index>=0 && this.Configuration.ChannelBool[index]==true)
             {
-                this.Configuration.MessageTest = message.ToString();
+                this.Configuration.MessageTest = message.ToString()+index.ToString();
             } else
             {
-                this.Configuration.MessageTest = type.GetType().ToString();
+                this.Configuration.MessageTest = type.ToString() + index.ToString();
             }
             //this.Configuration.MessageTest = message.ToString();
         }

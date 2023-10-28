@@ -2,6 +2,7 @@ using System;
 using System.Numerics;
 using Dalamud.Interface.Internal;
 using Dalamud.Interface.Windowing;
+using FFXIVClientStructs.FFXIV.Common.Configuration;
 using ImGuiNET;
 
 namespace SamplePlugin.Windows;
@@ -47,5 +48,8 @@ public class MainWindow : Window, IDisposable
 
         ImGui.Spacing();
         ImGui.Text($"The text is : {this.Plugin.Configuration.MessageTest}");
+        ImGui.Spacing();
+        ImGui.Text($"Test texte Fc: {this.Plugin.Configuration.testInput}");
+
     }
 }

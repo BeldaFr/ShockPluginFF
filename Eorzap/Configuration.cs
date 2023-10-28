@@ -46,8 +46,8 @@ namespace Eorzap
         public bool CLs7 { get; set; } = false;
         public bool CLs8 { get; set; } = false;
         public List<string> ChannelListener { get; set; } = new List<string>();
-        public String[] ChatNameUp = {"None","Say","Yell","Shout","TellIncoming","Reply","Party","Alliance","FreeCompany",
-        "LinkShell1","LinkShell2","LinkShell3","LinkShell4","LinkShell5","LinkShell6","LinkShell7","LinkShell8",
+        public String[] ChatName = {"None","Say","Yell","Shout","TellIncoming","Reply","Party","Alliance","FreeCompany",
+        "Ls1","Ls2","Ls3","Ls4","Ls5","Ls6","Ls7","Ls8",
         "CrossLinkShell1","CrossLinkShell2","CrossLinkShell3","CrossLinkShell4","CrossLinkShell5",
         "CrossLinkShell6","CrossLinkShell7","CrossLinkShell8"}; //Types of chat that can be filtered
         public bool[] ChannelBool = new bool[25];
@@ -70,7 +70,7 @@ namespace Eorzap
 
         /// <summary>
         /// Used to check which channel is listened on
-        /// Channel bool is meant to be used with ChatNameUp 
+        /// Channel bool is meant to be used with ChatName 
         /// </summary>
         public void InfoChannel()
         {

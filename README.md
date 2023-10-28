@@ -26,19 +26,3 @@ To be triggered one Message must be composed of only the Keyword and the trigger
 
 ## Disclaimer
 I'm only a student in programming and had no experience in C# before, so the code might be amateurish and not up to the highest standars, so feel free to improve on it for your owns needs, just credit me if you reuse it for another public project is all I ask, otherwise, have fun !
-## Main Points
-
-* Simple functional plugin
-  * Slash command
-  * Main UI
-  * Settings UI
-  * Image loading
-  * Plugin json
-* Simple, slightly-improved plugin configuration handling
-* Project organization
-  * Copies all necessary plugin files to the output directory
-    * Does not copy dependencies that are provided by dalamud
-    * Output directory can be zipped directly and have exactly what is required
-  * Hides data files from visual studio to reduce clutter
-    * Also allows having data files in different paths than VS would usually allow if done in the IDE directly
-

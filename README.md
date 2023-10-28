@@ -7,6 +7,7 @@ Meant to be used with the amazing animation mods : [Remote Shock Collar [Animati
 
 * /eorzap open the main windows from there you can open the settings and see the last response from the Pishock Api
     *Enter your personnal ApiKey, shocker code and username from the Pishock site
+  ![Settings screenshot](https://github.com/BeldaFr/ShockPluginFF/blob/master/doc/Settings.png?raw=true)
   
 
 ## Disclaimer

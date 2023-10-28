@@ -11,7 +11,7 @@ To be triggered one Message must be composed of only the Keyword and the trigger
 ## Setting it up
 
 * /eorzap open the main windows from there you can open the settings and see the last response from the Pishock Api
-    *Enter your personnal ApiKey, shocker code and username from the Pishock site
+    * Enter your personnal ApiKey, shocker code and username from the Pishock site
   ![Settings screenshot](https://github.com/BeldaFr/ShockPluginFF/blob/master/doc/Settings.png?raw=true)
 
 * Then check the type of chat you want the keywords and trigger to listen to, on that exemple we can see that a shock will be trigger if one of the Keyword + trigger is posted to the party chat,Fc chat, Tell and CrossWorlLinkShell1.

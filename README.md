@@ -1,12 +1,22 @@
 
 # Eorzap
 A simple Dalamund plugin used to link your Pishock shocker FFXIV
-Meant to be used with the amazing animation mods : [Remote Shock Collar [Animation] [NSFW]]([url](https://www.xivmodarchive.com/modid/89985))
+Meant to be used with the amazing animation mods : [Remote Shock Collar [Animation] [NSFW]](https://www.xivmodarchive.com/modid/89985) for more immersion, but can work without it
+
 
 ## How does it works
 You can set up listeners to different kind of chats(Freecompany,say, part ect...) To do so you need to set up a Main keywords as well as up to 4 triggers.
 Each trigger can be set up with a different intensity and duration. 
 To be triggered one Message must be composed of only the Keyword and the trigger word, let takes for exemple the case that is showcased later our main Keyword will be "Testing" and ours first trigger will be "nervous". To trigger the shock that is linked to that trigger, trigger 1 you must receive a message containing "Testing nervous" if it has any less or more letters it wont trigger, the text is non case sensitive. Only putting "Testing" or "nervous" in the chat wont trigger a shock.
+
+## How to install :
+
+* Navigate to /xlsettings
+  * paste the line https://raw.githubusercontent.com/BeldaFr/ShockPluginFF/master/repo.json in custom repositories plugin
+  * Hit save , then navigate to /xlplugins
+  * In all plugins search for Eorzap , hit install than enable
+ 
+Voila ! The plugin should be installed and working in your game, now time to set it up.
 
 ## Setting it up
 

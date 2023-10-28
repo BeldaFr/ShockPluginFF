@@ -97,7 +97,7 @@ namespace Eorzap
             // Also need to check for the trigger word that is setup + Do the actual shock with
             // the post request
             this.Configuration.InfoChannel();
-            string[] Channels = this.Configuration.ChatNameUp; //All the name of the channels that can be listened to
+            string[] Channels = this.Configuration.ChatName; //All the name of the channels that can be listened 
             int index = Array.IndexOf(Channels, type.ToString());
             if (index>=0 && this.Configuration.ChannelBool[index]==true) //If the channel can be selected and is activated by the user
             {

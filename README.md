@@ -1,11 +1,16 @@
 
-# SamplePlugin
+# Eorzap
+A simple Dalamund plugin used to link your Pishock shocker FFXIV
+Meant to be used with the amazing animation mods : [Remote Shock Collar [Animation] [NSFW]]([url](https://www.xivmodarchive.com/modid/89985))
 
+## How does it work ?
 
-Simple example plugin for Dalamud.
+* /eorzap open the main windows from there you can open the settings and see the last response from the Pishock Api
+    *Enter your personnal ApiKey, shocker code and username from the Pishock site
+  
 
-This is not designed to be the simplest possible example, but it is also not designed to cover everything you might want to do. For more detailed questions, come ask in [the Discord](https://discord.gg/holdshift).
-
+## Disclaimer
+I'm only a student in programming and had no experience in C# before, so the code might be amateurish and not up to the highest standars, so feel free to improve on it for your owns needs, just credit me if you reuse it for another public project is all I ask, otherwise, have fun !
 ## Main Points
 
 * Simple functional plugin

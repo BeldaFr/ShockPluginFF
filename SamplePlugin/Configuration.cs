@@ -5,16 +5,22 @@ using Dalamud.Plugin;
 using System;
 using System.Collections.Generic;
 
-namespace SamplePlugin
+namespace Eorzap
 {
     [Serializable]
     public class Configuration : IPluginConfiguration
     {
         public int Version { get; set; } = 0;
         public bool SomePropertyToBeSavedAndWithADefault { get; set; } = true;
-
+        public string ApiKey { get; set; } = string.Empty;
+        public string ShockerCode { get; set; } = string.Empty;
+        public string ShockUsername { get; set; } = string.Empty;
+        public string resultApiCall { get; set; } = string.Empty;
         public string MessageTest { get; set; } = "default";
-        public string testInput { get; set; } = "null";
+        public string mainKeyWord { get; set; }  = "null";
+        public string[] triggerWords { get; set; } = new string[] {"","","",""};
+        public int[] intensityArray { get; set; } = new int[] { 0, 0, 0, 0 };
+        public int[] durationArray { get; set; } = new int[] { 0, 0, 0, 0 };
         public bool Say { get; set; } = false;
         public bool Yell { get; set; } = false;
         public bool Shout { get; set; } = false;
@@ -40,10 +46,10 @@ namespace SamplePlugin
         public bool CLs7 { get; set; } = false;
         public bool CLs8 { get; set; } = false;
         public List<string> ChannelListener { get; set; } = new List<string>();
-        public String[] ChatName = {"None","Say","Yell","Shout","TellIncoming","Reply","Party","Alliance","FreeCompany",
+        public String[] ChatNameUp = {"None","Say","Yell","Shout","TellIncoming","Reply","Party","Alliance","FreeCompany",
         "LinkShell1","LinkShell2","LinkShell3","LinkShell4","LinkShell5","LinkShell6","LinkShell7","LinkShell8",
-        "CrossworldLinkshell1","CrossworldLinkshell2","CrossworldLinkshell3","CrossworldLinkshell4","CrossworldLinkshell5",
-        "CrossworldLinkshell6","CrossworldLinkshell7","CrossworldLinkshell8"}; //Types of chat that can be filtered
+        "CrossLinkShell1","CrossLinkShell2","CrossLinkShell3","CrossLinkShell4","CrossLinkShell5",
+        "CrossLinkShell6","CrossLinkShell7","CrossLinkShell8"}; //Types of chat that can be filtered
         public bool[] ChannelBool = new bool[25];
 
 
@@ -61,6 +67,11 @@ namespace SamplePlugin
             this.PluginInterface!.SavePluginConfig(this);
         }
 
+
+        /// <summary>
+        /// Used to check which channel is listened on
+        /// Channel bool is meant to be used with ChatNameUp 
+        /// </summary>
         public void InfoChannel()
         {
             this.ChannelBool[1] = this.Say;

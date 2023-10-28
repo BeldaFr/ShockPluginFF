@@ -1,0 +1,13 @@
+{
+  "Author": "Belda",
+  "Name": "Eorzap",
+  "Punchline": "Link your pishock to FFXIV",
+  "Description": "use /eorzap to set it up",
+  "InternalName": "Eorzap",
+  "ApplicableVersion": "any",
+  "Tags": [
+    "zap",
+    "plugin",
+    "Pishock"
+  ]
+}

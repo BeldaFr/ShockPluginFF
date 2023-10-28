@@ -15,6 +15,7 @@ To be triggered one Message must be composed of only the Keyword and the trigger
   ![Settings screenshot](https://github.com/BeldaFr/ShockPluginFF/blob/master/doc/Settings.png?raw=true)
 
 * Then check the type of chat you want the keywords and trigger to listen to, on that exemple we can see that a shock will be trigger if one of the Keyword + trigger is posted to the party chat,Fc chat, Tell and CrossWorlLinkShell1.
+
   /!\ If you are testing with Tell, the keywords only works when you receive a tell and not send one, it should work both ways on all other chats
     * Now chose your main Keyword, be careful to not have any empty space before or after it
     * Then add as up to 4 triggers if you feel like it, dont forget to give them all a duration and intensity !

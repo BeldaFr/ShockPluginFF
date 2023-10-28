@@ -4,6 +4,7 @@
     "Author": "Belda",
     "Name": "Eorzap",
     "Punchline": "Link your pishock to FFXIV",
+    "AssemblyVersion": "0.1",
     "Description": "use /eorzap to set it up",
     "InternalName": "Eorzap",
     "RepoUrl": "https://github.com/BeldaFr/ShockPluginFF",

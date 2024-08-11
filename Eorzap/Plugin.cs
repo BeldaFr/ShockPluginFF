@@ -23,7 +23,7 @@ namespace Eorzap
         public string Name => "Eorzap";
         private const string CommandName = "/eorzap";
 
-        private DalamudPluginInterface PluginInterface { get; init; }
+        private IDalamudPluginInterface PluginInterface { get; init; }
         private ICommandManager CommandManager { get; init; }
         private IChatGui Chat { get; init; } = null!;
         public Configuration Configuration { get; init; }
@@ -33,9 +33,9 @@ namespace Eorzap
         private MainWindow MainWindow { get; init; }
 
         public Plugin(
-            [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
-            [RequiredVersion("1.0")] ICommandManager commandManager,
-            [RequiredVersion("1.0")] IChatGui chat)
+            IDalamudPluginInterface pluginInterface,
+            ICommandManager commandManager,
+            IChatGui chat)
         {
             this.PluginInterface = pluginInterface;
             this.CommandManager = commandManager;
@@ -58,7 +58,7 @@ namespace Eorzap
 
             this.PluginInterface.UiBuilder.Draw += DrawUI;
             this.PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
-            this.Chat.ChatMessage += OnChatMessage;
+            this.Chat.ChatMessage += this.OnChatMessage;
         }
 
         public void Dispose()
@@ -69,7 +69,7 @@ namespace Eorzap
             MainWindow.Dispose();
             
             this.CommandManager.RemoveHandler(CommandName);
-            this.Chat.ChatMessage -= OnChatMessage;
+            //this.Chat.ChatMessage -= OnChatMessage;
         }
 
         private void OnCommand(string command, string args)
@@ -89,7 +89,7 @@ namespace Eorzap
         }
 
         //public delegate void OnMessageDelegate(XivChatType type, uint senderId, ref SeString sender, ref SeString message, ref bool isHandled);
-        private void OnChatMessage(XivChatType type, uint senderId, ref SeString sender, ref SeString message, ref bool isHandled)
+        public void OnChatMessage(XivChatType type, int timestamp, ref SeString sender, ref SeString message, ref bool isHandled)
         {
             // for now only check a message if in a FC
             // Need to add a config file to check which chat to check
